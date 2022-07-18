@@ -1,0 +1,4 @@
+# Los siguientes archivos se ingoraran por seguridad
+.env
+composer.lock
+

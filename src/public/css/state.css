@@ -1,0 +1,27 @@
+.header ul a{
+    transition: color 0.5s;
+}
+
+.header ul li span:hover{
+    text-decoration: none;
+}
+
+.header ul a:hover{
+    text-decoration: underline;
+    color: rgba(0, 0, 255, 0.645);
+}
+
+.header ul a:target{
+    color: black;
+}
+.button-submit{
+    transition: all 0.3s;
+}
+.button-submit:hover{
+    background-color: #592b71;
+    transform: scale(1.1);
+}
+input:focus{
+    border-width: 1px;
+    outline: none;
+}

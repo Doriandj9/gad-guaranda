@@ -1,0 +1,22 @@
+{
+    "name": "gad/guaranda",
+    "description": "Es un sistema que contiene una API para manejar los locales comerciales en gda",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "DorianA",
+            "email": "dorian9armijos@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "symfony/dotenv": "6.0.x-dev",
+        "firebase/php-jwt": "dev-main"
+    }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/public/css/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <title>%title%</title>
+</head>
+<body>
+    <div class="container">
+
+        <header class="header">
+            <div class="logo">
+                <img class="img-logo" src="/src/public/img/logo.png" alt="logo">
+            </div>
+            <nav>
+                <ul>
+                    <a href="/"><li><span class="material-icons">&#xe88a;</span> Inicio</li></a>
+                    <a href="/admin/login" class="%c%"><li> <span class="material-icons ">&#xea77;</span> Inicio Sesion</li></a>
+                    <a href="/documentation/api"><li><span class="material-icons">&#xf1b7;</span> Documentacion </li></a>
+                    <a href="/instruccion/app"><li> <span class="material-icons">&#xe873;</span> Instrucciones</li></a>
+                    <a href="/add/agentes" class="% hidden %"><li> <span class="material-icons ">&#xe7ff;</span> Agregar Agentes</li></a>
+                    <a style="color: red;" href="/logout" class="% hidden %"><li> <span class="material-icons ">&#xe9ba;</span> Cerrar Sesion</li></a>
+
+                </ul>
+            </nav>
+        </header>
+        <main class="main">
+
+            %content%
+            
+        </main>
+        <footer class="footer">
+                &copy; Derechos reservados Muncipio Guaranda | 2022-2022
+        </footer>
+    </div>
+    <script src="/src/public/js/main.js"></script>
+</body>
+</html>
