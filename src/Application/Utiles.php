@@ -19,12 +19,12 @@ class Utiles{
                 return $string !== '' ? true: false;
             }
         );
-        $arrayVariables = array_filter(
-            $arrayVariables, 
-            function($string){
-                return !str_contains($string,'#');
-            }
-        );
+        // $arrayVariables = array_filter(
+        //     $arrayVariables, 
+        //     function($string){
+        //         return !str_contains($string,'#');
+        //     }
+        // );
         
         foreach($arrayVariables as $variable){
             $variable = str_replace('"','',$variable);
