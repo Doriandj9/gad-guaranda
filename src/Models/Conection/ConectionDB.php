@@ -11,7 +11,7 @@ class ConectionDB extends \PDO{
 
     public function __construct()
     {
-        $this->HOST = $_SERVER['HOST'];
+        $this->HOST = $_ENV['HOST'];
         $this->DB_NAME =  $_ENV['DBNAME'];
         $this->USER = $_ENV['USER'];
         $this->PASS = $_ENV['PASSWORD'];
