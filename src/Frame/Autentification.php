@@ -5,11 +5,13 @@ namespace App\Frame;
 use App\Models\Usuarios;
 
 class Autentification {
-    
+    private $usuarios;
+    private $cedula;
+    private $password;
     public function __construct(
-        private Usuarios $usuarios,
-        private string $cedula,
-        private string $password
+        Usuarios $usuarios,
+        string $cedula,
+        string $password
     )
     {
         $this->usuarios = $usuarios;

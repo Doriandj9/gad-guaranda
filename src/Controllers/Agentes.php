@@ -5,8 +5,9 @@ namespace App\Controllers;
 use App\Models\Usuarios;
 
 class Agentes {
+    private $agentes;
     public function __construct(
-        private Usuarios $agentes
+       Usuarios $agentes
     )
     {
         $this->agentes = $agentes;

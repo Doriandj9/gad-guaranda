@@ -12,12 +12,15 @@ use App\Models\Usuarios;
  * 
  */
 class Api{
-
+    private $usuarios;
+    private $locales;
+    private $locacion;
+    private $propietarios;
     public function __construct(
-        private Usuarios $usuarios,
-        private Locales $locales,
-        private Locacion $locacion,
-        private Propietarios $propietarios
+        Usuarios $usuarios,
+        Locales $locales,
+        Locacion $locacion,
+        Propietarios $propietarios
     )
     {
         $this->usuarios = $usuarios;

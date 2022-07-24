@@ -4,8 +4,9 @@ namespace App\Controllers;
 use App\Frame\Autentification;
 
 class Login{
+    private $autentification;
     public function __construct(
-        private Autentification $autentification
+        Autentification $autentification
     )
     {
         $this->autentification= $autentification;
