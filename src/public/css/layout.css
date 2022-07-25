@@ -277,7 +277,32 @@ color: white;
     width: 20rem;
     height: 20rem;
 }
+/*--------------------------------Vista de Lista de Agentes-------------------------------------------**/
+.list{
+    margin: auto;
+    border-collapse: collapse;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.list thead{
+    background-color: var(--color-bg-header);
+    color: var(--color-altern-two-variant);
+    font-weight: bold;
+}
+.list th{
+    border: 1px solid var(--color-altern-four);
+    padding: 0.5rem;
 
+}
+.list td{
+    border: 1px solid var(--color-altern-four);
+    padding: 0.5rem;
+    font-weight: normal;
+    text-align: center;
+}
+.remove-agentente{
+    background-color: var(--color-secondary-variant);
+    color: white;
+}
 /*----------------------------Diferentes Pantallas ------------------------------------------------*/
 
 @media screen and (max-width:1080px) {
@@ -312,5 +337,4 @@ color: white;
         width: 100%;
     }
 }
-
 

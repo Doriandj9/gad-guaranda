@@ -28,7 +28,7 @@ input:focus{
     transition: height 0.5s, opacity 1s;
 }
 .menu:hover > .menu-desplegable{
-    height: calc(2.1rem * 3);
+    height: calc(2.1rem * 4);
     overflow: visible;
     opacity: 1;
 }

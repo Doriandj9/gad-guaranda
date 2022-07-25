@@ -55,4 +55,25 @@ class Agentes {
             ]);
         }
     }
+    public function list(){
+        $agentes =  $this->agentes->selectFromColumn('permisos',Usuarios::AGENTE_MUNICIPAL);
+        return [
+            'title' => 'Lista de Agentes',
+            'template' => 'ui/listAgentes.html.php',
+            'variables' => [
+                'agentes' => $agentes
+            ]
+        ];
+    }
+    public function removeAgente(){
+        $agentes =  $this->agentes->selectFromColumn('permisos',Usuarios::AGENTE_MUNICIPAL);
+        return [
+            'title' => 'Lista de Agentes',
+            'template' => 'ui/removeAgentes.html.php',
+            'variables' => [
+                'agentes' => $agentes
+            ]
+        ];
+        
+    }
 }

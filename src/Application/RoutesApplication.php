@@ -102,18 +102,6 @@ class RoutesApplication implements Routes {
                     'action' => 'instruccion'
                 ]
                 ],
-            'add/agentes' =>[
-                'GET' => [
-                    'controller' => $agentesController,
-                    'action' => 'view'
-                ],
-                'POST' => [
-                    'controller' => $agentesController,
-                    'action' => 'saveAgente'
-                ],
-                'login' => true,
-                'permission' => Usuarios::ADMINISTRADOR
-            ],
             'logout' => [
                 'GET' => [
                     'controller' => $loginController,
@@ -132,6 +120,43 @@ class RoutesApplication implements Routes {
                             'action' => 'error404'
                         ]
                         ],
+            /**----------------------------------------------- Rutas del Adminstrador ---------------------- */
+            /**
+             * Todas las rutas que el administrador debe manejar
+             * 
+             */
+            'add/agentes' =>[
+                'GET' => [
+                    'controller' => $agentesController,
+                    'action' => 'view'
+                ],
+                'POST' => [
+                    'controller' => $agentesController,
+                    'action' => 'saveAgente'
+                ],
+                'login' => true,
+                'permission' => Usuarios::ADMINISTRADOR
+            ],
+            'list/agentes' =>[
+                'GET' => [
+                    'controller' => $agentesController,
+                    'action' => 'list'
+                ],
+                'login' => true,
+                'permission' => Usuarios::ADMINISTRADOR
+            ],
+            'baja/agentes' =>[
+                'GET' => [
+                    'controller' => $agentesController,
+                    'action' => 'removeAgente'
+                ],
+                'POST' => [
+                    'controller' => $agentesController,
+                    'action' => 'saveAgente'
+                ],
+                'login' => true,
+                'permission' => Usuarios::ADMINISTRADOR
+            ],
              /**---------------------------------------------Rutas de la API-------------------------------- */
              /**
               * Todas las rutas que se van a usar para consultar,insertar,actualizar y borrar con la API
