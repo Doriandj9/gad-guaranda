@@ -8,8 +8,8 @@ $html = file_get_contents('./src/Views/template/layout.html');
 $html = preg_replace('/%title%/',$title,$html);
 $html = preg_replace('/%content%/',$content,$html);
 if(isset($_SESSION['user'])){
-    $html = preg_replace('/%c%/','hidden',$html);
-    $html = preg_replace('/% hidden %/', '',$html);
+    $html = str_replace('%cam%','oculto',$html);
+    $html = str_replace('% oculto %', '',$html);
 }
 echo $html;
 

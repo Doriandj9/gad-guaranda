@@ -96,7 +96,7 @@ class RoutesApplication implements Routes {
                     'action' => 'saveLogin'
                 ]
                 ],
-            'instruccion/app'=> [
+            'instructions/general'=> [
                 'GET' => [
                     'controller' => $homeController,
                     'action' => 'instruccion'

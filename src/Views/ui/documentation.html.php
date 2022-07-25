@@ -23,7 +23,7 @@
             <h3 class="title3">Recurso</h3>
             <blockquote class="consola url">
                 <span>
-                http://<?=$_ENV['SERVER_DIRECCION'];?>/api/agentes-municipales
+                https://<?=$_ENV['SERVER_DIRECCION'];?>/api/agentes-municipales
                 </span>
             </blockquote>
             <h3 class="title3">Resultado</h3>
@@ -46,7 +46,7 @@
             <h3 class="title3">Recurso</h3>
             <blockquote class="consola url">
                 <span>
-                http://<?= $_ENV['SERVER_DIRECCION'] ?>/api/locales-comerciales
+                https://<?= $_ENV['SERVER_DIRECCION'] ?>/api/locales-comerciales
                 </span>
             </blockquote>
             <h3 class="title3">Resultado</h3>
@@ -77,7 +77,7 @@
             <h3 class="title3">Recurso</h3>
             <blockquote class="consola url">
                 <span>
-                http://<?= $_ENV['SERVER_DIRECCION'] ?>/api/locales-comerciales?id=valor
+                https://<?= $_ENV['SERVER_DIRECCION'] ?>/api/locales-comerciales?id=valor
                 </span>
             </blockquote>
             <h3 class="title3">Resultado</h3>
@@ -104,7 +104,7 @@
             <h3 class="title3">Recurso</h3>
             <blockquote class="consola url">
                 <span>
-                http://<?= $_ENV['SERVER_DIRECCION'] ?>/api/locales-comerciales
+                https://<?= $_ENV['SERVER_DIRECCION'] ?>/api/locales-comerciales
                 </span>
             </blockquote>
             <blockquote class="info">
@@ -157,7 +157,7 @@
             <h3 class="title3">Recurso</h3>
             <blockquote class="consola url">
                 <span>
-                http://<?= $_ENV['SERVER_DIRECCION'] ?>/api/locaciones
+                https://<?= $_ENV['SERVER_DIRECCION'] ?>/api/locaciones
                 </span>
             </blockquote>
             <h3 class="title3">Resultado</h3>
@@ -181,7 +181,7 @@
             <h3 class="title3">Recurso</h3>
             <blockquote class="consola url">
                 <span>
-                http://<?= $_ENV['SERVER_DIRECCION'] ?>/api/locaciones?id=valor
+                https://<?= $_ENV['SERVER_DIRECCION'] ?>/api/locaciones?id=valor
                 </span>
             </blockquote>
             <h3 class="title3">Resultado</h3>
@@ -200,7 +200,7 @@
             <h3 class="title3">Recurso</h3>
             <blockquote class="consola url">
                 <span>
-                http://<?= $_ENV['SERVER_DIRECCION'] ?>/api/locaciones
+                https://<?= $_ENV['SERVER_DIRECCION'] ?>/api/locaciones
                 </span>
             </blockquote>
             <blockquote class="info">

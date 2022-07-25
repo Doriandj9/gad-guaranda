@@ -43,11 +43,49 @@
             <nav>
                 <ul>
                     <a href="/"><li><span class="material-icons">&#xe88a;</span> Inicio</li></a>
-                    <a href="/admin/login" class="%c%"><li> <span class="material-icons ">&#xea77;</span> Inicio Sesion</li></a>
+                    <a href="/admin/login" class="%cam%" ><li> <span class="material-icons ">&#xea77;</span> Inicio Sesion</li></a>
                     <a href="/documentation/api"><li><span class="material-icons">&#xf1b7;</span> Documentacion </li></a>
-                    <a href="/instruccion/app"><li> <span class="material-icons">&#xe873;</span> Instrucciones</li></a>
-                    <a href="/add/agentes" class="% hidden %"><li> <span class="material-icons ">&#xe7ff;</span> Agregar Agentes</li></a>
-                    <a style="color: red;" href="/logout" class="% hidden %"><li> <span class="material-icons ">&#xe9ba;</span> Cerrar Sesion</li></a>
+                    <div href="#" class="% oculto % menu">
+                        <li> <span class="material-icons">&#xe8b8;</span> Opciones</li> 
+                        <nav class="menu-desplegable">
+                            <li class=""><span class="material-icons">&#xf8e4;</span> Personal
+                                <nav class="lateral interno-final">
+                                    <li class=""><span class="material-icons">&#xea21;</span> Agentes
+                                        <nav class="lateral interno">
+                                           <div> <a href="/"><li><span class="material-icons">&#xe7f0;</span> Agregar Agente</li></a> </div>
+                                           <div><a href="/"><li><span class="material-icons">&#xe267;</span> Listar</li></a></div> 
+                                           <div><a href="/"><li><span class="material-icons">&#xef67;</span> Dar de Baja</li></a></div> 
+
+                                        </nav>
+                                    </li>
+                                    <li class=""><span class="material-icons">&#xe7ee;</span> Planta 
+                                        <nav class="lateral interno">
+                                            <div> <a href="/"><li><span class="material-icons">&#xe7fe;</span> Agregar Usuario</li></a> </div>
+                                            <div><a href="/"><li><span class="material-icons">&#xe9d4;</span> Retirar Cargo</li></a></div> 
+                                         </nav>
+                                    </li>
+                                    </nav>                                    
+                                </li>
+
+
+                                <li class=""><span class="material-icons">&#xe864;</span> Respaldos
+                                    <nav class="lateral interno-final">            
+                                                <a href="/"><li><span class="material-icons">&#xef43;</span> Generar Respaldo</li></a>
+                                                <a href="/"><li><span class="material-icons">&#xf071;</span>Lista de Respaldos</li></a>
+                                        </nav>
+                                </li>
+                                <li class=""><span class="material-icons">&#xeb97;</span> Apariencia
+                                    <nav class="lateral interno-final">
+                                        <a href="/"><li><span class="material-icons">&#xe3f4;</span> Cambio de Logo</li></a>
+                                        <!-- <a href="/"><li><span class="material-icons">&#xf071;</span></li></a> -->
+                                    </nav>
+                                </li>
+                                
+                            </nav>
+                        </div>
+                        
+                    <a href="/instructions/general"><li> <span class="material-icons">&#xe873;</span> Instrucciones</li></a>
+                    <a style="color: red;" href="/logout" class="% oculto %"><li> <span class="material-icons ">&#xe9ba;</span> Cerrar Sesion</li></a>
 
                 </ul>
             </nav>

@@ -26,8 +26,13 @@ body{
     background-color: var(--color-bg-header);
     color: white;
     font-family:'Nanum Gothic', sans-serif;
+    position: relative;
+  
+    
 }
-
+.oculto { 
+    display: none !important;
+}
 .logo .img-logo{
     width: 200px;
     height: 100px;
@@ -56,6 +61,53 @@ body{
     padding: 0.10rem;
     color: var(--color-primary);
 }
+.menu{
+    color: var(--color-primary);
+    position: relative;
+    width: 8rem;
+    cursor: pointer;
+    z-index: 1;
+}
+.header .menu-desplegable{
+    display: flex;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items:stretch;
+    z-index: 50;
+    background-color: var(--color-bg-header);
+}
+.menu-desplegable > li{
+    position: relative;
+}
+.lateral{
+    position: absolute;
+    display: none !important;
+    top: 0;
+    left: 100%;
+    flex-direction: column;
+    min-height: 5rem;
+    justify-content: stretch !important;
+    gap: 0.5rem;
+    background-color: var(--color-bg-header);
+}
+.lateral > div{
+    width: 12rem;
+}
+.interno{
+   padding-left: 0.5rem;
+}
+.interno-final a{
+    width: 12rem;
+}
+    
+
 /*------------------------------MAIN----------------------------------------*/
 .main{
     flex-grow: 1;
@@ -260,3 +312,5 @@ color: white;
         width: 100%;
     }
 }
+
+
