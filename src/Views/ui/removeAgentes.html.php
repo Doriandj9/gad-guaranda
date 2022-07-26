@@ -1,5 +1,5 @@
 <div class="content-documentacion">
-    <div class="list">
+    <div class="">
         <form action="" method="post">
 
             <table class="list">

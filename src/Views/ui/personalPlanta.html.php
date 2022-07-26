@@ -11,8 +11,13 @@
 <div class="container-form">
     <h1>Ingresar un Personal de Planta</h1>
     <form action="" method="post">
-        <label for="">Ingrese el numero de cedula</label>
-        <input type="text" name="cedula">
+        <!--TODO: Para verificar una cedula debe contener esta esta estructura  -->
+        <div class="verify-password">
+            <label for="">Ingrese el numero de cedula</label>
+            <input type="text" name="cedula" id="cedula-verify">
+            <span class="error error-sms" id="error-cedula"></span>
+        </div>
+        <!-- END -->
         <label for="">Ingrese el nombre del Usuario</label>
         <input type="text" name="nombre">
         <label for="">Ingrese una clave para el Usuario</label>

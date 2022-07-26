@@ -25,10 +25,10 @@ class Apariencia{
         $DirecionImage = './src/public/img/';
         $outputImage = $DirecionImage . $name;
 
-        if(move_uploaded_file($tmp,$outputImage)){
-            $jsonImage = file_get_contents($direccionJson);
+        if(move_uploaded_file($tmp,$outputImage)){ // mueve la imagen guardada en el espacio temporal hacia la carpeta img permanentemente
+            $jsonImage = file_get_contents($direccionJson);// traemos el archivo json que contien la url de la imagen del logo
             $dataImage = json_decode($jsonImage,true);
-            $dataImage['img'] = ltrim($outputImage,'.');
+            $dataImage['img'] = ltrim($outputImage,'.'); // le damos la nueva direccion del logo
             file_put_contents($direccionJson,json_encode($dataImage)); 
             return $this->view(['success' => 'Se cambio correctamente el logotipo']);
         }else{

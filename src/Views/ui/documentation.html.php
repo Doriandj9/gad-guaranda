@@ -112,31 +112,28 @@
                     Se debe enviar por medio de solicitud POST los siguientes arguentos
                     <ul>
                         <li>
-                            <span class="clave">id</span> = <span class="valor">(string)</span>
+                            <span class="clave">cedula_propietario</span> = <span class="valor">(string[ 10 ]) ➡ Es la cedula del dueño del establecimiento </span>
                         </li>
                         <li>
-                            <span class="clave">nombre</span> = <span class="valor">(string)</span>
+                            <span class="clave">nombre_propietario</span> = <span class="valor">(string) ➡ Es el nombre del dueño ejmplo Juan Perez </span>
                         </li>
                         <li>
-                            <span class="clave">tipo</span> = <span class="valor">(string)</span>
+                            <span class="clave">ruc</span> = <span class="valor">(string)</span>
                         </li>
                         <li>
-                            <span class="clave">sector</span> = <span class="valor">(string)</span>
+                            <span class="clave">id_local</span> = <span class="valor">(string[ ejm = ALP-001 ]) ➡ Es el identificador alfanumerico unico de ese establecimiento  separado por - </span>
                         </li>
                         <li>
-                            <span class="clave">ruc</span> = <span class="valor">(string)</span> ➡ Opcional
+                            <span class="clave">nombre_local</span> = <span class="valor">(string) ➡ Es el nombre del establecimiento </span>
                         </li>
                         <li>
-                            <span class="clave">imagen</span> = <span class="valor">(string (codificada en BASE 64))</span>
+                            <span class="clave">tipo</span> = <span class="valor">(string) ➡ Es el tipo de local por ejemplo farmacias o ferreterias </span>
                         </li>
                         <li>
-                            <span class="clave">id_locacion</span> = <span class="valor">(int)</span>
+                            <span class="clave">imagen</span> = <span class="valor">(string (codificada en BASE 64)) ➡ Es la imagen del establecimiento codificada en BASE 64 </span>
                         </li>
                         <li>
-                            <span class="clave">id_propietario</span> = <span class="valor">(int)</span>
-                        </li>
-                        <li>
-                            <span class="clave">id_usuario</span> = <span class="valor">(string)</span>
+                            <span class="clave">id_usuario</span> = <span class="valor">(string) ➡ Es el numero de cédula del agente municipal </span>
                         </li>
                     </ul>
                 </p>

@@ -1,3 +1,7 @@
+import {CEDULA_REG_EXPRE} from '/src/public/js/modules/ConstExpres.js';
+/**
+ * Esta proceso perimite mostrar las contrasenias 
+ */
 (function(){
     const eye = document.querySelectorAll('#eye');
     if(!eye && eye.length === 0) return;
@@ -21,6 +25,13 @@
     }
 })();
 
+//-----------------------------------------------------------
+
+/**
+ * Este proceso permite mostrar una previualizacion de una imagen que va ser cambiada
+ * por el logotipo principal
+ */
+
 (function(){
     const preview = document.getElementById('preview');
     if(!preview) return;
@@ -42,3 +53,35 @@
         })
     }
 })();
+//------------------------------------------------------------------
+/**
+ * Este proceso permite verificar que una cedula es ingresada correctamente
+ */
+(function(){
+    const input = document.getElementById('cedula-verify');
+    if(!input)  return;
+    const content = document.getElementById('error-cedula');
+    const form = content.parentNode.parentNode;
+    form.addEventListener('submit',send);
+    input.addEventListener('input',write);
+
+    function write(e){
+        const veri = CEDULA_REG_EXPRE.test(input.value);
+        if(!veri){
+            form.addEventListener('submit',send);
+            content.style.display = 'inline';
+            content.innerHTML ='';
+            content.textContent = 'Error Ingrese una cédula válida';
+        }else{
+            content.style.display = 'none';
+            form.removeEventListener('submit',send);
+        }
+    }
+
+    function send(e){
+        e.preventDefault();
+    }
+
+})();
+
+//-------------------------------------------------------------------------

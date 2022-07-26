@@ -308,6 +308,24 @@ color: white;
     background-color: var(--color-secondary-variant);
     color: white;
 }
+.verify-password{
+    position: relative;
+    box-sizing: border-box;
+}
+.verify-password input{
+    width: 100%;
+    box-sizing: border-box;
+
+}
+.error-sms{
+    display: none;
+    position: absolute;
+    top: 65%;
+    transform: translateY(-50%);
+    left: 100%;
+    width: 15rem;
+
+}
 /*--------------------------------Vista de Lista de Apariencia-------------------------------------------**/
 
 .list form {

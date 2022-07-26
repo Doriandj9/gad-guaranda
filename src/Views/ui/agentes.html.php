@@ -11,8 +11,11 @@
 <div class="container-form">
     <h1>Ingresar un Agente Municipal</h1>
     <form action="" method="post">
+        <div class="verify-password">
         <label for="">Ingrese el numero de cedula</label>
-        <input type="text" name="cedula">
+        <input type="text" name="cedula" id="cedula-verify">
+        <span class="error error-sms" id="error-cedula"></span>
+        </div>
         <label for="">Ingrese el nombre del Agente</label>
         <input type="text" name="nombre">
         <label for="">Ingrese una clave para el agente</label>
