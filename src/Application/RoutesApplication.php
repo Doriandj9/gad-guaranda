@@ -2,7 +2,9 @@
 namespace App\Application;
 
 use App\Controllers\Agentes;
+use App\Controllers\Apariencia;
 use App\Controllers\Api;
+use App\Controllers\Database;
 use App\Controllers\Home;
 use App\Controllers\Login;
 use App\Frame\Autentification;
@@ -71,7 +73,9 @@ class RoutesApplication implements Routes {
         );
         $homeController = new Home;
         $loginController = new Login($this->autentification);
-        $agentesController = new Agentes($this->usuarios);
+        $agentesController = new Agentes($this->usuarios,$this->autentification);
+        $databseController = new Database($this->autentification);
+        $aparienciaController = new Apariencia;
 
         return [
             '' => [
@@ -125,7 +129,7 @@ class RoutesApplication implements Routes {
              * Todas las rutas que el administrador debe manejar
              * 
              */
-            'add/agentes' =>[
+            'agregar/agentes-municipales' =>[
                 'GET' => [
                     'controller' => $agentesController,
                     'action' => 'view'
@@ -152,7 +156,76 @@ class RoutesApplication implements Routes {
                 ],
                 'POST' => [
                     'controller' => $agentesController,
-                    'action' => 'saveAgente'
+                    'action' => 'saveRemoveAgente'
+                ],
+                'login' => true,
+                'permission' => Usuarios::ADMINISTRADOR
+            ],
+            'respaldos/db' =>[
+                'GET' => [
+                    'controller' => $databseController,
+                    'action' => 'view'
+                ],
+                'POST' => [
+                    'controller' => $databseController,
+                    'action' => 'generate'
+                ],
+                'login' => true,
+                'permission' => Usuarios::ADMINISTRADOR
+            ],
+            'list/respaldos/db' =>[
+                'GET' => [
+                    'controller' => $databseController,
+                    'action' => 'list'
+                ],
+                'login' => true,
+                'permission' => Usuarios::ADMINISTRADOR
+            ],
+            'cambio/imagen' =>[
+                'GET' => [
+                    'controller' => $aparienciaController,
+                    'action' => 'view'
+                ],
+                'POST' => [
+                    'controller' => $aparienciaController,
+                    'action' => 'cambioImagen'
+                ],
+                'login' => true,
+                'permission' => Usuarios::ADMINISTRADOR
+            ],
+            'cambio/clave' =>[
+                'GET' => [
+                    'controller' => $agentesController,
+                    'action' => 'cambioClave'
+                ],
+                'POST' => [
+                    'controller' => $agentesController,
+                    'action' => 'saveCambioClave'
+                ],
+                'login' => true,
+                'permission' => Usuarios::ADMINISTRADOR
+            ],
+            /*---------------------------------------Rutas admin - Jefes de Planta---------------------------*/
+            'add/personal-planta' =>[
+                'GET' => [
+                    'controller' => $agentesController,
+                    'action' => 'addJefePlanta'
+                ],
+                'POST' => [
+                    'controller' => $agentesController,
+                    'action' => 'saveJefePlanta'
+                ],
+                'login' => true,
+                'permission' => Usuarios::ADMINISTRADOR
+            ],
+            'baja/personal-planta' =>[
+                'GET' => [
+                    'controller' => $agentesController,
+                    'action' => 'bajaJefePlanta'
+                ],
+                'POST' => [
+                    'controller' => $agentesController,
+                    'action' => 'saveBajaJefePlanta'
                 ],
                 'login' => true,
                 'permission' => Usuarios::ADMINISTRADOR

@@ -1,3 +1,4 @@
+@import url('./base.css');
 .header ul a{
     transition: color 0.5s;
 }
@@ -43,4 +44,7 @@ input:focus{
 .interno-final > li:hover > nav.lateral{
     display: flex !important;
     
+}
+.list form .img-select:hover > span{
+    color: var(--color-altern-two);
 }

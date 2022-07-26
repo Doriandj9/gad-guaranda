@@ -7,7 +7,10 @@ class Usuarios extends DatabaseTable{
     public $nombre;
     public $clave;
     public $permisos;
+    public $estado;
+    public $fecha;
     public const AGENTE_MUNICIPAL = 1;
+    public const JEFE_PLANTA = 4;
     public const ADMINISTRADOR = 6;
 
     public function __construct()

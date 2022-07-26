@@ -29,11 +29,15 @@ class Api{
         $this->propietarios = $propietarios;
     }
     public function documentation(){
+        date_default_timezone_set('America/Guayaquil');
+        $date = new \DateTime();
         $dataUser = [
             'id' => '0250186665',
             'nombre' => 'Dorian Armijos',
             'clave' => password_hash('12345',PASSWORD_DEFAULT),
-            'permisos' => Usuarios::ADMINISTRADOR
+            'permisos' => Usuarios::ADMINISTRADOR,
+            'estado' => 'activo',
+            'fecha' => $date->format('Y-m-d')
         ];
         //$this->usuarios->insert($dataUser);
         return [
@@ -75,12 +79,13 @@ class Api{
     }
 
     public function addLocales(){
+        
         $dataLocales = [
             'id' => $_POST['id'],
             'nombre' => $_POST['nombre'],
             'tipo' => $_POST['tipo'],
-            'sector' => $_POST['sector'],
-            'ruc' => $_POST['ruc'],
+            'sector' => $_POST['sector-'],
+            'ruc' => $_POST['ruc-'],
             'imagen' => $_POST['imagen'],
             'id_locacion' => $_POST['locacion'],
             'id_propietario' => $_POST['id_propietario'],

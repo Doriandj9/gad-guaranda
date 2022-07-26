@@ -11,7 +11,7 @@
                 </thead>
                 <tbody>
                     <?php $count = 0;
-                    foreach($agentes as $personal): ?>
+                    foreach($personales as $personal): ?>
                             <tr class="<?php
                                           if(isset($personal->estado) && $personal->estado === 'inactivo'){
                                              echo 'remove-agentente';
