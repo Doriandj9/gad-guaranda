@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Frame\Autentification;
+use App\Models\Usuarios;
 
 class Login{
     private $autentification;
@@ -22,6 +23,12 @@ class Login{
     public function saveLogin(){
         $res = $this->autentification->verifyLogin($_POST['cedula'],$_POST['password']);
         if($res){
+            $user = $this->autentification->getUser();
+            if($user->permisos == Usuarios::ADMINISTRADOR){
+                $_SESSION['cargo'] = Usuarios::ADMINISTRADOR;
+            }else if($user->permisos == Usuarios::JEFE_PLANTA){
+                $_SESSION['cargo'] = Usuarios::JEFE_PLANTA;
+            }
             header('location: /');
             exit();
         }

@@ -11,7 +11,7 @@ class Usuarios extends DatabaseTable{
     public $fecha;
     public const AGENTE_MUNICIPAL = 1;
     public const JEFE_PLANTA = 4;
-    public const ADMINISTRADOR = 6;
+    public const ADMINISTRADOR = 8;
 
     public function __construct()
     {
@@ -25,6 +25,13 @@ class Usuarios extends DatabaseTable{
         return $this->selectFromColumn('permisos',self::AGENTE_MUNICIPAL); // Regresa solo los agentes municipales
     }
 
+    public function getAllAgentesActivate(){
+        //return $this->selectFromColumn('permisos',self::AGENTE_MUNICIPAL); 
+        $query = 'SELECT * FROM usuarios WHERE permisos = '. self::AGENTE_MUNICIPAL. ' AND estado = "activo"';// Regresa solo los agentes municipales activos 
+        $result = $this->runQuery($query);
+
+        return $result->fetchAll(\PDO::FETCH_CLASS,'\App\Models\Usuarios',['usuarios','id']);
+    }
 
     public function hasPermission($permission){
 

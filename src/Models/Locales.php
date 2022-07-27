@@ -6,11 +6,10 @@ class Locales extends DatabaseTable {
     public $id;
     public $nombre;
     public $tipo;
-    public $sector;
-    public $ruc;
     public $imagen;
     public $id_locacion;
     public $id_propietario;
+    public $id_usuario;
 
     public function __construct()
     {

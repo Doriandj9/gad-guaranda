@@ -202,8 +202,8 @@ class RoutesApplication implements Routes {
                     'controller' => $agentesController,
                     'action' => 'saveCambioClave'
                 ],
-                'login' => true,
-                'permission' => Usuarios::ADMINISTRADOR
+                'login' => true
+                
             ],
             /*---------------------------------------Rutas admin - Jefes de Planta---------------------------*/
             'add/personal-planta' =>[

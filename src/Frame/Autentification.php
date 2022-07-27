@@ -45,7 +45,8 @@ class Autentification {
         return false;
     }
 
-    public function getUser(){
+    public function getUser(): Usuarios
+    {
         if(!$this->verifySession()){
            return false;
         }

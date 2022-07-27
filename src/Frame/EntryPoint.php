@@ -110,6 +110,7 @@ class EntryPoint{
         if(isset($routes[$this->route]['login']) && !$this->routesApplication->autentification()->verifySession()){
             header('location: /error');
         }
+        
         if(isset($routes[$this->route]['permission']) && !$this->routesApplication->hasPermission($routes[$this->route]['permission'])){
             header('location: /error');
         }

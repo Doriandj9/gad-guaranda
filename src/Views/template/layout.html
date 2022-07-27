@@ -45,7 +45,7 @@
                     <a href="/"><li><span class="material-icons">&#xe88a;</span> Inicio</li></a>
                     <a href="/admin/login" class="%cam%" ><li> <span class="material-icons ">&#xea77;</span> Inicio Sesion</li></a>
                     <a href="/documentation/api"><li><span class="material-icons">&#xf1b7;</span> Documentacion </li></a>
-                    <div href="#" class="% oculto % menu">
+                    <div href="#" class="% oculto % menu % alternar .admin %">
                         <li> <span class="material-icons">&#xe8b8;</span> Opciones</li> 
                         <nav class="menu-desplegable">
                             <li class=""><span class="material-icons">&#xf8e4;</span> Personal
@@ -83,7 +83,35 @@
                                 <a href="/cambio/clave"><li><span class="material-icons">&#xeade;</span>Cambio de Contraseña</li></a>
                             </nav>
                         </div>
-                        
+                        <!-- --------------------------------------------------------- Menu del Jefe De Departamento---------------------------------------- -->
+                        <div href="#" class="% oculto % menu % alternar .planta %">
+                            <li> <span class="material-icons">&#xe8b8;</span> Opciones</li> 
+                            <nav class="menu-desplegable">
+                                <li class=""><span class="material-icons">&#xf8e4;</span> Personal
+                                                    
+                                    </li>
+    
+    
+                                    <li class=""><span class="material-icons">&#xe864;</span> Respaldos
+                                        <nav class="lateral interno-final">            
+                                                    <a href="/respaldos/db"><li><span class="material-icons">&#xef43;</span> Generar Respaldo</li></a>
+                                                    <a href="/list/respaldos/db"><li><span class="material-icons">&#xf071;</span>Lista de Respaldos</li></a>
+                                            </nav>
+                                    </li>
+                                    
+                                    <a href="/cambio/clave"><li><span class="material-icons">&#xeade;</span>Cambio de Contraseña</li></a>
+                                </nav>
+                            </div>
+
+
+
+
+
+
+
+
+
+                        <!-- ------------------------------------------------------------------------END----------------------------------------------------- -->
                     <a href="/instructions/general"><li> <span class="material-icons">&#xe873;</span> Instrucciones</li></a>
                     <a style="color: red;" href="/logout" class="% oculto %"><li> <span class="material-icons ">&#xe9ba;</span> Cerrar Sesion</li></a>
 

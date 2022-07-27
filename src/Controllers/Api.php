@@ -7,6 +7,7 @@ use App\Models\Locales;
 use App\Models\Propietarios;
 use App\Models\Usuarios;
 
+
 /**
  * Esta clase continen todos los metodos sobre la API
  * 
@@ -47,7 +48,9 @@ class Api{
     }
 
     public function getAgentes(){
-        $agentes = $this->usuarios->getAllAgentes();
+        header('Content-type: application/json');
+        
+        $agentes = $this->usuarios->getAllAgentesActivate();
         return [
             'title' => '',
             'template' => 'api/agentes.html.php',
@@ -58,11 +61,9 @@ class Api{
 
 
     }
-    public function addAgentes(){
-
-    }
 
     public function getLocales(){
+        header('Content-type: application/json');
         $locales = null;
         if(isset($_GET['id'])){
             $locales = $this->locales->selectFromColumn('id',$_GET['id']); 
@@ -79,17 +80,49 @@ class Api{
     }
 
     public function addLocales(){
-        
+        header('Content-type: application/json');
+
+        $dataPropietario = [
+            'cedula' => empty($_POST['cedula_propietario']) ? 'incierto' : $_POST['cedula_propietario'],
+            'nombre' => empty($_POST['nombre_propietario']) ? 'incierto' : $_POST['nombre_propietario'],
+            'ruc' => empty($_POST['ruc']) ? 'incierto' : $_POST['ruc'],
+            'anonimo' => empty($_POST['cedula_propietario']) ? 1 : 0
+        ];
+
+        try{
+
+            if($dataPropietario['cedula'] !== 'incierto' && strlen(trim($_POST['cedula_propietario'])) !== 10 ){
+                throw new \PDOException('La cedula ingresada no contiene 10 caracteres');
+            }
+            $modelPropietario = null;
+            $propietario = $this->propietarios->selectFromColumn('cedula',$_POST['cedula_propietario']);
+            if($propietario){
+                $modelPropietario = $propietario[0];
+            }else{
+                $modelPropietario = $this->propietarios->insertLast($dataPropietario);
+            }   
+        }catch(\PDOException $e){
+            return [
+                'title' => '',
+                'template' => 'api/insertLocal.html.php',
+                'variables' => [
+                    'respuesta' => $res = [
+                        'res' => 'Error',
+                        'ident' => 0,
+                        'error' => 'Error: '. $e->getMessage()
+                    ]
+                ]
+            ];
+        }  
+
         $dataLocales = [
-            'id' => $_POST['id'],
-            'nombre' => $_POST['nombre'],
+            'id' => $_POST['id_local'],
+            'nombre' => $_POST['nombre_local'],
             'tipo' => $_POST['tipo'],
-            'sector' => $_POST['sector-'],
-            'ruc' => $_POST['ruc-'],
             'imagen' => $_POST['imagen'],
-            'id_locacion' => $_POST['locacion'],
-            'id_propietario' => $_POST['id_propietario'],
-            'id_usuario' => $_POST['id_usuario']
+            'id_locacion' => preg_split('/-/',trim($_POST['id_local']))[0],
+            'id_propietario' => $modelPropietario->id,
+            'id_usuario' => '1234567890'
         ];
         $res = [];
         try{
@@ -116,6 +149,7 @@ class Api{
 
     }
     public function getLocaciones(){
+        header('Content-type: application/json');
         $locacion = null;
         if(isset($_GET['id'])){
             $locacion = $this->locacion->selectFromColumn('id',$_GET['id']);
@@ -131,7 +165,11 @@ class Api{
         ];
     }
     public function addLocacion(){
+        header('Content-type: application/json');
+
         $dataLocalisacion = [
+            'id' => $_POST['id'],
+            'nombre' => $_POST['nombre'],
             'link' => $_POST['link']
         ];
         $res = [];

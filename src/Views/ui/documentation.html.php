@@ -205,6 +205,12 @@
                     Se debe enviar por medio de solicitud POST los siguientes arguentos
                     <ul>
                         <li>
+                            <span class="clave">id</span> = <span class="valor">(string) ➡ Es un string de las primeras letras en mayuscula preferente ejemplo ALP (ALPACHACA)</span>
+                        </li>
+                        <li>
+                            <span class="clave">nombre</span> = <span class="valor">(string) ➡ Es el nombre del sector por ejemplo ALPACHACA</span>
+                        </li>
+                        <li>
                             <span class="clave">link</span> = <span class="valor">(string)</span>
                         </li>
                     </ul>

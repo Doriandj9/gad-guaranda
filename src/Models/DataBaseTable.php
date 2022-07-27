@@ -24,7 +24,7 @@ class DatabaseTable extends ConectionDB{
         $this->arguments= $arguments;
     }
     
-    private function runQuery($query, $params =[]){
+    protected function runQuery($query, $params =[]){
         $result = $this->prepare($query);
         $result->execute($params);
         return $result;

@@ -4,6 +4,7 @@ namespace App\Models;
 
 class Locacion extends DatabaseTable{
     public $id;
+    public $nombre;
     public $link;
 
     public function __construct()

@@ -38,6 +38,7 @@ class Database{
 
         system($sentencia,$output);
        header('location: /list/respaldos/db');
+       exit();
     }
 
     public function list(){
