@@ -121,13 +121,15 @@ class EntryPoint{
         }else{
             $content = $this->loadTemplate($result['template']);
         }
+        $user = $this->routesApplication->autentification()->getUser();
 
         // por ultimo solo se imprime la vista
         echo $this->loadTemplate(
             'template/layout.html.php',
             [
                 'title' => $title,
-                'content' => $content
+                'content' => $content,
+                'user' => $user
             ]
         );
 

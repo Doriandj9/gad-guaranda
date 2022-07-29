@@ -21,6 +21,12 @@
     background-color: #592b71;
     transform: scale(1.1);
 }
+.button-cancel{
+    transition: all 0.5s;
+}
+.button-cancel:hover{
+    transform: scale(1.1);
+}
 input:focus{
     border-width: 1px;
     outline: none;
@@ -46,5 +52,12 @@ input:focus{
     
 }
 .list form .img-select:hover > span{
+    color: var(--color-altern-two);
+}
+.form-edit input:focus{
+    outline: 2px solid var(--color-altern-two);
+    box-shadow: 5px 5px 5px var(--color-altern-two);
+}
+.form-edit span:hover{
     color: var(--color-altern-two);
 }

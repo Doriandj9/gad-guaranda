@@ -59,12 +59,15 @@ import {CEDULA_REG_EXPRE} from '/src/public/js/modules/ConstExpres.js';
  */
 (function(){
     const input = document.getElementById('cedula-verify');
-    if(!input)  return;
+    if(!input) return;
     const content = document.getElementById('error-cedula');
     const form = content.parentNode.parentNode;
+
     form.addEventListener('submit',send);
     input.addEventListener('input',write);
-
+    if(document.getElementById('pasar')){
+        form.removeEventListener('submit',send);
+    }
     function write(e){
         const veri = CEDULA_REG_EXPRE.test(input.value);
         if(!veri){
@@ -85,3 +88,40 @@ import {CEDULA_REG_EXPRE} from '/src/public/js/modules/ConstExpres.js';
 })();
 
 //-------------------------------------------------------------------------
+
+/**
+ * ----------------------------------------Este proceso para ver la foto que se actualizara-----------------
+ */
+
+(function (){
+    const preview2 = document.getElementById('preview2');
+    if(!preview2) return;
+    const imput = document.getElementById('img-logo');
+    
+    imput.onchange = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+
+        reader.addEventListener('load', e => {
+            const url = reader.result;
+            preview2.src = url;
+        })
+
+    }
+
+    
+})();
+
+/**
+ * Esta accion recargar la pagina
+ */
+(function(){
+    const button = document.getElementById('reload-page');
+    if(!button) return;
+    button.addEventListener('click', e => {
+        e.preventDefault();
+
+        location.reload();
+    })
+})();

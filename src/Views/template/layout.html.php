@@ -12,9 +12,12 @@ $html = file_get_contents('./src/Views/template/layout.html');
 $html = preg_replace('/%title%/',$title,$html);
 $html = preg_replace('/%content%/',$content,$html);
 $html = str_replace('% #(logo) %',$dataImage['img'],$html);
+
+
 if(isset($_SESSION['user'])){
     $html = str_replace('%cam%','oculto',$html);
     $html = str_replace('% oculto %', '',$html);
+    $html = str_replace('%% name %%', $user->nombre,$html);
 }
 
 if(isset($_SESSION['cargo'])){
@@ -25,5 +28,4 @@ if(isset($_SESSION['cargo'])){
     }
 }
 echo $html;
-
 

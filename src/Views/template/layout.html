@@ -40,6 +40,9 @@
             <div class="logo">
                 <img class="img-logo" src="% #(logo) %" alt="logo">
             </div>
+            <div class="welcome % oculto % ">
+                Bienvenido %% name %%
+            </div>
             <nav>
                 <ul>
                     <a href="/"><li><span class="material-icons">&#xe88a;</span> Inicio</li></a>
@@ -87,17 +90,19 @@
                         <div href="#" class="% oculto % menu % alternar .planta %">
                             <li> <span class="material-icons">&#xe8b8;</span> Opciones</li> 
                             <nav class="menu-desplegable">
-                                <li class=""><span class="material-icons">&#xf8e4;</span> Personal
-                                                    
-                                    </li>
+                                <li class=""><span class="material-icons">&#xe8cd;</span> Consultas
+                                    <nav class="lateral interno-final">
+                                        <div> <a href="/list/locales-comerciales"><li><span class="material-icons">&#xe8d1;</span> Locales Comerciales</li></a> </div>
+                                    </nav>
+                                </li>
     
     
-                                    <li class=""><span class="material-icons">&#xe864;</span> Respaldos
+                                    <!-- <li class=""><span class="material-icons">&#xe864;</span> Respaldos
                                         <nav class="lateral interno-final">            
                                                     <a href="/respaldos/db"><li><span class="material-icons">&#xef43;</span> Generar Respaldo</li></a>
                                                     <a href="/list/respaldos/db"><li><span class="material-icons">&#xf071;</span>Lista de Respaldos</li></a>
                                             </nav>
-                                    </li>
+                                    </li> -->
                                     
                                     <a href="/cambio/clave"><li><span class="material-icons">&#xeade;</span>Cambio de Contraseña</li></a>
                                 </nav>

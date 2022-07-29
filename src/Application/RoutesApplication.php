@@ -7,6 +7,7 @@ use App\Controllers\Api;
 use App\Controllers\Database;
 use App\Controllers\Home;
 use App\Controllers\Login;
+use App\Controllers\Planta;
 use App\Frame\Autentification;
 use App\Frame\Routes;
 use App\Models\Locacion;
@@ -53,9 +54,9 @@ class RoutesApplication implements Routes {
     public function __construct()
     {
        $this->usuarios = new Usuarios;
-       $this->locales = new Locales;
        $this->locacion = new Locacion;
        $this->propietarios = new Propietarios;
+       $this->locales = new Locales($this->propietarios);
        $this->autentification = new Autentification($this->usuarios,'id','clave');
 
     }
@@ -76,6 +77,7 @@ class RoutesApplication implements Routes {
         $agentesController = new Agentes($this->usuarios,$this->autentification);
         $databseController = new Database($this->autentification);
         $aparienciaController = new Apariencia;
+        $plantaController = new Planta($this->usuarios,$this->locales,$this->propietarios);
 
         return [
             '' => [
@@ -230,6 +232,30 @@ class RoutesApplication implements Routes {
                 'login' => true,
                 'permission' => Usuarios::ADMINISTRADOR
             ],
+            /**-------------------------------------------Rutas del JEFE de PLANTA----------------------------- */
+            /**
+             * Todas las rutas del jefe de planta 
+             */
+            'list/locales-comerciales' =>[
+                'GET' => [
+                    'controller' => $plantaController,
+                    'action' => 'view'
+                ],
+                'login' => true,
+                'permission' => Usuarios::JEFE_PLANTA
+            ],
+            'editar/locales' =>[
+                'GET' => [
+                    'controller' => $plantaController,
+                    'action' => 'edit'
+                ],
+                'POST' => [
+                    'controller' => $plantaController,
+                    'action' => 'saveEdit'
+                ],
+                'login' => true,
+                'permission' => Usuarios::JEFE_PLANTA
+            ],
              /**---------------------------------------------Rutas de la API-------------------------------- */
              /**
               * Todas las rutas que se van a usar para consultar,insertar,actualizar y borrar con la API
@@ -265,7 +291,17 @@ class RoutesApplication implements Routes {
                     'action' => 'addLocacion'
                 ],
             ],
-               
+            'api/prueba' => [
+                'GET' => [
+                    'controller' => $apiController,
+                    'action' => 'pruebaHeaders'
+                ],
+                'POST' => [
+                    'controller' => $apiController,
+                    'action' => 'setPruebaHeaders'
+                ],
+            ],
+            
         ];
     }
 

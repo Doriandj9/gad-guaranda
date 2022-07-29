@@ -27,6 +27,7 @@ body{
     color: white;
     font-family:'Nanum Gothic', sans-serif;
     position: relative;
+
   
     
 }
@@ -110,6 +111,14 @@ body{
 .alternar{
     display: none;
 }
+.welcome{
+    position: absolute;
+    top: 5rem;
+    /* background-color: var(--color-altern-five); */
+    color: var(--color-altern-four);
+    font-size: 1.1rem;
+    font-weight: 800;
+}
 /*------------------------------MAIN----------------------------------------*/
 .main{
     flex-grow: 1;
@@ -188,7 +197,21 @@ color: white;
     outline: none;
     border: none;
 }
+.button-cancel{
+    padding: 0.5rem 1.5rem;
+    background-color: var(--color-secondary);
+    color: white;
+    cursor: default;
+    font-weight: bold;
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-size: 0.8rem;
+    font-weight: 900;
 
+}
 .ojo{
     position: relative;
     display: inline-flex;
@@ -360,6 +383,114 @@ color: white;
     height: 15rem;
     object-fit: cover;
 }
+/*-------------------------------------- Vista constal de locales comerciales ------------------------------------------------*/
+
+.content-list{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    height: 70vh;
+    overflow: auto;
+}
+.busqueda{
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+    padding: 0;
+    justify-content: center;
+}
+.busqueda input[type="search"]{
+    width: 17rem;
+    border-width: 0;
+    outline: none;
+    border-bottom-left-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    padding: 0.5rem;
+}
+.input-search{
+    border: 1px solid var(--color-primary);
+    border-radius: 0.5rem;
+}
+.input-search button{
+    outline: none;
+    border-width: 0;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-altern-four);
+    color: white;
+    box-sizing: border-box;
+    border-image: none;
+    border-style: none;
+    border-color: none;
+    margin: 0;
+}
+
+.busqueda select{
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    outline: none;
+    border-width: 0;
+    margin-right: 0.25rem;
+}
+.busqueda select > option{
+    height: 3rem;
+}
+.table-overflow img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.form-edit{
+    width: 40rem;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-weight: 600;
+    padding: 0.5rem;
+}
+.form-edit button,a{
+    align-self: flex-end;
+}
+.form-edit  label span{
+    font-size: 3rem;
+    color: var(--color-primary);
+    cursor: pointer;
+}
+.form-edit input{
+    width: 20rem;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    outline: 2px solid var(--color-primary);
+}
+.form-edit > div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.form-edit > div.verify-password {
+    width: 100%;
+}
+.form-edit > div.verify-password > input{
+    width: 20rem;
+}
+.form-edit img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
 /*----------------------------Diferentes Pantallas ------------------------------------------------*/
 
 @media screen and (max-width:1080px) {
@@ -377,6 +508,11 @@ color: white;
     .error{
         width: 90%;
     }
+    .welcome{
+        top: 2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 @media screen and (max-width:660px) {
@@ -393,5 +529,14 @@ color: white;
     .error{
         width: 100%;
     }
+    .welcome{
+        right: 0;
+        transform: translateX(0);
+    }
 }
 
+@media screen and (max-width:460px) {
+    .welcome{
+        top: 5rem;
+    }
+}

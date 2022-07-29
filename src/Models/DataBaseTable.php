@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Models\Conection\ConectionDB;
 
 class DatabaseTable extends ConectionDB{
-    private $table;
+    protected $table;
     private $primaryKey;
     private $className;
     private $arguments;

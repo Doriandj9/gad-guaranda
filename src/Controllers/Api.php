@@ -197,4 +197,13 @@ class Api{
         ];
         
     }
+
+    public function pruebaHeaders(){
+        header('Access-Control-Allow-Origin: http://127.0.0.1:5500/');
+        header('Access-Control-Allow-Credentials: true');
+        header('Access-Control-Allow-Methods: OPTIONS, GET, POST, PUT, DELETE');
+        header('Access-Control-Allow-Headers: api-access-key');
+        var_dump(headers_list());
+        die;
+    }
 }

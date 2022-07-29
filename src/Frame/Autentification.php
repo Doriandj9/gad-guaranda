@@ -22,7 +22,7 @@ class Autentification {
 
     public function verifyLogin($cedula,$password){
         $usuario = $this->usuarios->selectFromColumn('id',$cedula);
-        if($usuario && password_verify($password,$usuario[0]->clave)){
+        if($usuario && password_verify($password,$usuario[0]->clave) && $usuario[0]->estado !== 'inactivo'){
             session_regenerate_id();
             $_SESSION['user'] = $usuario[0]->id;
             $_SESSION['password'] = $usuario[0]->clave;
@@ -45,7 +45,7 @@ class Autentification {
         return false;
     }
 
-    public function getUser(): Usuarios
+    public function getUser(): Usuarios | bool
     {
         if(!$this->verifySession()){
            return false;
