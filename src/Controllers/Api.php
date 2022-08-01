@@ -122,7 +122,7 @@ class Api{
             'imagen' => $_POST['imagen'],
             'id_locacion' => preg_split('/-/',trim($_POST['id_local']))[0],
             'id_propietario' => $modelPropietario->id,
-            'id_usuario' => '1234567890'
+            'id_usuario' => $_POST['id_usuario']
         ];
         $res = [];
         try{
@@ -170,16 +170,28 @@ class Api{
         $dataLocalisacion = [
             'id' => $_POST['id'],
             'nombre' => $_POST['nombre'],
-            'link' => $_POST['link']
+            'link' => 'pendiente'
         ];
         $res = [];
         try{
-            $this->locacion->insert($dataLocalisacion);
-            $res = [
-                'res' => 'Se inserto correctamente el sector',
-                'ident' => 1,
-                'error' => ''
-            ];
+            $link = $this->locacion->selectFromColumn('id',trim($_POST['id']));
+            if($link){
+                unset($dataLocalisacion['nombre']);
+                $dataLocalisacion['link'] = $_POST['link'];
+                $this->locacion->update($dataLocalisacion);
+                $res = [
+                    'res' => 'Link actualizado',
+                    'ident' => 1,
+                    'error' => ''
+                ];
+            }else{
+                $this->locacion->insert($dataLocalisacion);
+                $res = [
+                    'res' => 'Se inserto correctamente el sector',
+                    'ident' => 1,
+                    'error' => ''
+                ];
+            }
         }catch(\PDOException $e){
             $res = [
                 'res' => 'Error no se inserto correctamente el sector',
@@ -198,8 +210,35 @@ class Api{
         
     }
 
+    public function updateAgente(){
+        $dataAgentes = [
+            'clave' => $_POST['password'],
+            'id' => $_POST['id']
+        ];
+
+        try{
+            
+            $this->usuarios->update($dataAgentes);
+            return [
+                'title' => '',
+                'template' => 'api/insertLocacion.html.php',
+                'variables' => [
+                'respuesta' => ['ident' => 1 ,'result' => 'Se actulizo correctamente']
+            ]
+            ];
+        }catch(\PDOException $e){
+            return [
+                'title' => '',
+                'template' => 'api/insertLocacion.html.php',
+                'variables' => [
+                'respuesta' => ['ident' => 0 ,'result' => 'Error: ' . $e->getMessage()]
+            ]
+            ];
+        }
+    }
+
     public function pruebaHeaders(){
-        header('Access-Control-Allow-Origin: http://127.0.0.1:5500/');
+        header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Credentials: true');
         header('Access-Control-Allow-Methods: OPTIONS, GET, POST, PUT, DELETE');
         header('Access-Control-Allow-Headers: api-access-key');

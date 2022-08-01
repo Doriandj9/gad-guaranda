@@ -291,6 +291,12 @@ class RoutesApplication implements Routes {
                     'action' => 'addLocacion'
                 ],
             ],
+            'api/actualizar/agente' => [
+                'POST' => [
+                    'controller' => $apiController,
+                    'action' => 'updateAgente'
+                ],
+            ],
             'api/prueba' => [
                 'GET' => [
                     'controller' => $apiController,
