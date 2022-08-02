@@ -66,9 +66,9 @@ class Api{
         header('Content-type: application/json');
         $locales = null;
         if(isset($_GET['id'])){
-            $locales = $this->locales->selectFromColumn('id',$_GET['id']); 
+            $locales = $this->locales->getLocalInformation($_GET['id']); 
         }else{
-            $locales = $this->locales->select();
+            $locales = $this->locales->getAllInformation();
         }
         return [
             'title' => '',
@@ -153,6 +153,11 @@ class Api{
         $locacion = null;
         if(isset($_GET['id'])){
             $locacion = $this->locacion->selectFromColumn('id',$_GET['id']);
+            if($locacion){
+                $locacion = $locacion[0];
+            }else{
+                $locacion = [];
+            }
         }else{
             $locacion = $this->locacion->select();
         }

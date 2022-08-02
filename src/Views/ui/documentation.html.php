@@ -18,7 +18,7 @@
         </blockquote> 
     </p>
     <article>
-        <h2>Obtener los datos de los Agentes Municipales</h2>
+        <h2>Obtener los datos de los Agentes Municipales en android se puede realizar la solicitud con la libreria Volley utilizando JsonArrayRequest</h2>
         <section>
             <h3 class="title3">Recurso</h3>
             <blockquote class="consola url">
@@ -29,13 +29,22 @@
             <h3 class="title3">Resultado</h3>
             <blockquote class="consola json">
                 <pre>
-                    {
-                        
-                        "id": "...",
-                        "nombre": "...",
-                        "clave": "...(encriptada)"
-                        "permisos": "..."
-                    }
+                    [   {
+                            
+                            "id": "...",
+                            "nombre": "...",
+                            "clave": "...(encriptada)"
+                            "permisos": "..."
+                        },
+                        {
+                            
+                            "id": "...",
+                            "nombre": "...",
+                            "clave": "...(encriptada)"
+                            "permisos": "..."
+                        }
+
+                    ]
                 </pre>
             </blockquote>
         </section>
@@ -52,7 +61,7 @@
             <h3 class="title3">Resultado</h3>
             <blockquote class="consola json">
                 <pre>
-                {"locales":[
+                [
                         {
                             "id": "...",
                             "nombre": "...",
@@ -62,11 +71,16 @@
                             "imagen": "...(codificada en BASE 64)",
                             "id_locacion": "...",
                             "id_propietario": "...",
-                            "id_usuario": "..."
+                            "id_usuario": "...",
+                            "id":"...",(Hace referencia al id del propietario que es auto incrmental)
+                            "cedula": "..."
+                            "nombre_propietario":"...",
+                            "ruc": "...",
+                            "anonimo": "..." 
                         },
                         ...
-                    ]
-                }
+                ]
+                
                 </pre>
             </blockquote>
         </section>
@@ -92,7 +106,12 @@
                         "imagen": "... (codificada en BASE 64)",
                         "id_locacion": "...",
                         "id_propietario": "...",
-                        "id_usuario": "..."
+                        "id_usuario": "...",
+                        "id":"...",(Hace referencia al id del propietario que es auto incrmental)
+                        "cedula": "..."
+                        "nombre_propietario":"...",
+                        "ruc": "...",
+                        "anonimo": "..." 
                     }
                 </pre>
             </blockquote>
@@ -149,7 +168,7 @@
         </section>
     </article> 
     <article>
-        <h2>Obtener la informacion de las locaciones</h2>
+        <h2>Obtener la informacion de las locaciones en android se puede realizar la solicitud con la libreria Volley utilizando JsonArrayRequest</h2>
         <section>
             <h3 class="title3">Recurso</h3>
             <blockquote class="consola url">
@@ -160,14 +179,14 @@
             <h3 class="title3">Resultado</h3>
             <blockquote class="consola json">
                 <pre>
-                {"locaciones":[
+                [
                         {
                             "id": "...",
                             "link": "..."
                         },
                         ...
-                    ]
-                }
+                ]
+                
                 </pre>
             </blockquote>
         </section>
@@ -186,6 +205,7 @@
                 <pre>
                     {
                         "id": "...",
+                        "nombre": "..."
                         "link": "..."
                     }
                 </pre>
@@ -227,7 +247,7 @@
         </section>
     </article>  
     <br>
-    <p> Esto constituye todo lo puede realizar el sistema con la API Comercios</p>
+    <p> Esto constituye todo lo puede realizar el sistema con la API Comercios del Gad de Guaranda</p>
     <br>
     <br>
 </div>
