@@ -75,7 +75,13 @@ class RoutesApplication implements Routes {
         $homeController = new Home;
         $loginController = new Login($this->autentification);
         $agentesController = new Agentes($this->usuarios,$this->autentification);
-        $databseController = new Database($this->autentification);
+        $databseController = new Database(
+            $this->autentification,
+            $this->locales,
+            $this->locacion,
+            $this->propietarios,
+            $this->usuarios
+        );
         $aparienciaController = new Apariencia;
         $plantaController = new Planta($this->usuarios,$this->locales,$this->propietarios);
 
