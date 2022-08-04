@@ -9,6 +9,7 @@ class Usuarios extends DatabaseTable{
     public $permisos;
     public $estado;
     public $fecha;
+    public $celular;
     public const AGENTE_MUNICIPAL = 1;
     public const JEFE_PLANTA = 4;
     public const ADMINISTRADOR = 8;

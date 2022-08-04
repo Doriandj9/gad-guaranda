@@ -11,6 +11,17 @@
             <input type="text" name="tipo" value="<?= $local->tipo;?>">
         </div>
         <div>
+            <label for="">Editar la contabilidad </label>
+            <div>
+                <label for="">Actualmente: <?=$local->contabilidad;?></label>
+            </div>
+            <select id="select-comercio" id="">
+                <option value="..">Cambiar</option>
+                <option value="SI">SI</option>
+                <option value="NO">NO</option>
+            </select>
+        </div>
+        <div>
             <label for="">Actualizar la imagen Local Comercial </label>
             <img id="preview2" src="<?php 
                 $verify = substr($local->imagen,0,22);

@@ -1,5 +1,8 @@
 # Los siguientes archivos se ingoraran por seguridad
 .env
 .gitignore
+composer.lock
 # la siguiente carpeta ya que depende de la version de php
 
+
+/vendor/

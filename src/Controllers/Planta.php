@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Locales;
 use App\Models\Propietarios;
 use App\Models\Usuarios;
+use PhpOffice\PhpSpreadsheet\{Spreadsheet,IOFactory};
 
 class Planta{
     private $usuarios;
@@ -67,8 +68,11 @@ class Planta{
     public function saveEdit(){
         $dataLocal = [
             'nombre' => $_POST['nombre_local'],
-            'tipo' => $_POST['tipo']
+            'tipo' => $_POST['tipo'],
         ];
+        if(isset($_POST['contabilidad'])){
+            $dataLocal['contabilidad'] = $_POST['contabilidad'];
+        }
         $dataPropietario = [
             'cedula' => $_POST['cedula'],
             'nombre' => $_POST['nombre_propietario'],
@@ -140,6 +144,57 @@ class Planta{
              return $this->view($variables);
          }
         
+    }
+
+    public function descargaExel(){
+
+        $locales = $this->locales->getAllLocalsContabilidad();
+        $exel = new Spreadsheet;
+        $reporte = $exel->getActiveSheet();
+
+        $reporte->setTitle('Reporte Locales Comerciales');
+        $reporte->getColumnDimension('D')->setWidth(40);
+        $reporte->setCellValue('D2','Reporte Locales Comerciales con Contabilidad');
+        $reporte->getColumnDimension('A')->setWidth(20);
+        $reporte->setCellValue('A4','IDENTIFICADOR');
+        $reporte->getColumnDimension('B')->setWidth(20);
+        $reporte->setCellValue('B4','NOMBRE DEL LOCAL');
+        $reporte->getColumnDimension('C')->setWidth(20);
+        $reporte->setCellValue('C4','TIPO');
+        $reporte->getColumnDimension('D')->setWidth(30);
+        $reporte->setCellValue('D4','CÉDULA DEL PROPIETARIO');
+        $reporte->getColumnDimension('E')->setWidth(40);
+        $reporte->setCellValue('E4','NOMBRE DEL PROPIETARIO');
+        $reporte->getColumnDimension('F')->setWidth(20);
+        $reporte->setCellValue('F4','RUC');
+        $reporte->getColumnDimension('G')->setWidth(10);
+        $reporte->setCellValue('G4','CONTABILIDAD');
+
+        $columNum = 5;
+        foreach($locales as $local){
+            $reporte->setCellValue('A'. $columNum,$local->id_local);
+            $reporte->setCellValue('B'. $columNum,$local->nombre_local);
+            $reporte->setCellValue('C'. $columNum,$local->tipo);
+            $reporte->setCellValue('D'. $columNum,$local->cedula);
+            $reporte->setCellValue('E'. $columNum,$local->nombre_propietario);
+            $reporte->setCellValue('F'. $columNum,$local->ruc);
+            $reporte->setCellValue('G'. $columNum,$local->contabilidad);
+            $columNum ++;
+
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="reporte_locales.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $writer = IOFactory::createWriter($exel, 'Xlsx');
+
+        $writer->save('php://output');
+
+        exit();
+
+
+
     }
 
 

@@ -125,3 +125,15 @@ import {CEDULA_REG_EXPRE} from '/src/public/js/modules/ConstExpres.js';
         location.reload();
     })
 })();
+
+
+(function(){
+    const select = document.getElementById('select-comercio');
+    if(!select) return;
+
+   select.onchange = (e) =>{
+    e.preventDefault();
+    select.setAttribute('name','contabilidad');
+   }
+
+})();

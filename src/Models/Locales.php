@@ -10,6 +10,7 @@ class Locales extends DatabaseTable {
     public $id_locacion;
     public $id_propietario;
     public $id_usuario;
+    public $contabilidad;
     private $modelPropietarios;
 
     public function __construct(
@@ -33,11 +34,14 @@ class Locales extends DatabaseTable {
                 $local_propietario->nombre_local = $local->nombre;
                 $local_propietario->tipo = $local->tipo;
                 $local_propietario->imagen = $local->imagen;
+                $local_propietario->contabilidad = $local->contabilidad;
                 $local_propietario->id = $indexes[0]->id;
                 $local_propietario->nombre_propietario = $indexes[0]->nombre;
                 $local_propietario->cedula = $indexes[0]->cedula;
                 $local_propietario->ruc = $indexes[0]->ruc;
                 $local_propietario->anonimo = $indexes[0]->anonimo;
+                $local_propietario->celular = $indexes[0]->celular;
+
                 array_push($final,$local_propietario);
             }
 
@@ -58,11 +62,14 @@ class Locales extends DatabaseTable {
                         $local_propietario->nombre_local = $local->nombre;
                         $local_propietario->tipo = $local->tipo;
                         $local_propietario->imagen = $local->imagen;
+                         $local_propietario->contabilidad = $local->contabilidad;
                         $local_propietario->id = $propietario[0]->id;
                         $local_propietario->nombre_propietario = $propietario[0]->nombre;
                         $local_propietario->cedula = $propietario[0]->cedula;
                         $local_propietario->ruc = $propietario[0]->ruc;
                         $local_propietario->anonimo = $propietario[0]->anonimo;
+                        $local_propietario->celular = $propietario[0]->celular;
+
                         array_push($locales,$local_propietario);
                     }
                 }
@@ -82,13 +89,44 @@ class Locales extends DatabaseTable {
                         $local_propietario->nombre_local = $local->nombre;
                         $local_propietario->tipo = $local->tipo;
                         $local_propietario->imagen = $local->imagen;
+                        $local_propietario->contabilidad = $local->contabilidad;
+
                         $local_propietario->id = $propietario[0]->id;
                         $local_propietario->nombre_propietario = $propietario[0]->nombre;
                         $local_propietario->cedula = $propietario[0]->cedula;
                         $local_propietario->ruc = $propietario[0]->ruc;
                         $local_propietario->anonimo = $propietario[0]->anonimo;
+                        $local_propietario->celular = $propietario[0]->celular;
+
                         $result = $local_propietario;
         }
         return $result;
+    }
+    public function getAllLocalsContabilidad(): Locales_Propietario | array
+    {
+        $final = [];
+        $locales = $this->selectFromColumn('contabilidad','SI');
+        foreach($locales as $local){
+            $indexes = $this->modelPropietarios->selectFromColumn('id',$local->id_propietario);
+            if($indexes){
+                $local_propietario = new Locales_Propietario();
+                $local_propietario->id_local = $local->id;
+                $local_propietario->nombre_local = $local->nombre;
+                $local_propietario->tipo = $local->tipo;
+                $local_propietario->imagen = $local->imagen;
+                $local_propietario->contabilidad = $local->contabilidad;
+                $local_propietario->id = $indexes[0]->id;
+                $local_propietario->nombre_propietario = $indexes[0]->nombre;
+                $local_propietario->cedula = $indexes[0]->cedula;
+                $local_propietario->ruc = $indexes[0]->ruc;
+                $local_propietario->anonimo = $indexes[0]->anonimo;
+                $local_propietario->celular = $indexes[0]->celular;
+
+                array_push($final,$local_propietario);
+            }
+
+        }
+        
+       return $final;
     }
 }

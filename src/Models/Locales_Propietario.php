@@ -15,4 +15,6 @@ class Locales_Propietario{
     public $nombre_propietario;
     public $ruc;
     public $anonimo;
+    public $contabilidad;
+    public $celular;
 }

@@ -76,7 +76,9 @@
                             "cedula": "..."
                             "nombre_propietario":"...",
                             "ruc": "...",
-                            "anonimo": "..." 
+                            "anonimo": "...",
+                            "contabilidad": "...",
+                            "celular":"..."(Numero Telefonico)
                         },
                         ...
                 ]
@@ -111,7 +113,9 @@
                         "cedula": "..."
                         "nombre_propietario":"...",
                         "ruc": "...",
-                        "anonimo": "..." 
+                        "anonimo": "..." ,
+                        "contabilidad": "...",
+                        "celular":"..."(Numero Telefonico)
                     }
                 </pre>
             </blockquote>
@@ -152,6 +156,12 @@
                             <span class="clave">imagen</span> = <span class="valor">(string (codificada en BASE 64)) ➡ Es la imagen del establecimiento codificada en BASE 64 </span>
                         </li>
                         <li>
+                            <span class="clave">celular</span> = <span class="valor">(string ➡ Es el numero telefonico del propietario </span>
+                        </li>
+                        <li>
+                            <span class="clave">contabilidad</span> = <span class="valor">(string ➡ Son las palabras SI o NO</span>
+                        </li>
+                        <li>
                             <span class="clave">id_usuario</span> = <span class="valor">(string) ➡ Es el numero de cédula del agente municipal </span>
                         </li>
                     </ul>
@@ -182,6 +192,7 @@
                 [
                         {
                             "id": "...",
+                            "nombre": "...",
                             "link": "..."
                         },
                         ...

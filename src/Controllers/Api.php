@@ -86,6 +86,7 @@ class Api{
             'cedula' => empty($_POST['cedula_propietario']) ? 'incierto' : $_POST['cedula_propietario'],
             'nombre' => empty($_POST['nombre_propietario']) ? 'incierto' : $_POST['nombre_propietario'],
             'ruc' => empty($_POST['ruc']) ? 'incierto' : $_POST['ruc'],
+            'celular' => empty($_POST['celular']) ? 'incierto' : $_POST['celular'],
             'anonimo' => empty($_POST['cedula_propietario']) ? 1 : 0
         ];
 
@@ -120,6 +121,7 @@ class Api{
             'nombre' => $_POST['nombre_local'],
             'tipo' => $_POST['tipo'],
             'imagen' => $_POST['imagen'],
+            'contabilidad' => empty($_POST['contabilidad']) ? 'DD' : trim($_POST['contabilidad']),
             'id_locacion' => preg_split('/-/',trim($_POST['id_local']))[0],
             'id_propietario' => $modelPropietario->id,
             'id_usuario' => $_POST['id_usuario']

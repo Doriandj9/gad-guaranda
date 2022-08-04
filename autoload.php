@@ -5,4 +5,4 @@ function autoload ($className){
     include __DIR__ . '/' . $dir;
 }
 
-spl_autoload_register('autoload');
+//spl_autoload_register('autoload');

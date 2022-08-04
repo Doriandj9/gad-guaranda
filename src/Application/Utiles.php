@@ -2,13 +2,11 @@
 
 namespace App\Application;
 
-use Exception;
-
 class Utiles{
 
     public static function loadEnv($dir){
         if(!file_exists($dir . '/.env')){
-            throw new Exception('Not exist file .env in main direccion');
+            throw new \Exception('Not exist file .env in main direccion');
         }
 
         $stringEnv = file_get_contents($dir . '/.env');

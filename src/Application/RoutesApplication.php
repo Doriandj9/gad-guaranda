@@ -244,6 +244,14 @@ class RoutesApplication implements Routes {
                 'login' => true,
                 'permission' => Usuarios::JEFE_PLANTA
             ],
+            'descarga/exel' =>[
+                'GET' => [
+                    'controller' => $plantaController,
+                    'action' => 'descargaExel'
+                ],
+                'login' => true,
+                'permission' => Usuarios::JEFE_PLANTA
+            ],
             'editar/locales' =>[
                 'GET' => [
                     'controller' => $plantaController,
